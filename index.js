@@ -1,6 +1,7 @@
 const http = require("http");
 const fs = require("fs");
-const port = 4005;
+const common = require("./common");
+const port = common.port;
 
 const getData = (req) =>
   new Promise((accept) => {

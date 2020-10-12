@@ -6,7 +6,7 @@ const GlobalStyle = styled.createGlobalStyle`
     margin: 0;
   }
 `;
-
+import common from "./common.js";
 const App = () => {
   const StyledApp = styled.div``;
   const [items, setItems] = React.useState([]);
@@ -14,12 +14,12 @@ const App = () => {
 
   const getData = async () =>
     setItems(
-      await (await fetch(`http://${window.location.hostname}:4005`)).json()
+      await (await fetch(`http://${window.location.hostname}:${common.port}`)).json()
     );
 
   const addItem = async () => {
     await (
-      await fetch(`http://${window.location.hostname}:4005`, {
+      await fetch(`http://${window.location.hostname}:${common.port}`, {
         method: "POST",
         body: JSON.stringify({ title: newItem, done: false }),
       })
@@ -29,7 +29,7 @@ const App = () => {
 
   const deleteItem = (index) => async () => {
     await (
-      await fetch(`http://${window.location.hostname}:4005/${index}`, {
+      await fetch(`http://${window.location.hostname}:${common.port}/${index}`, {
         method: "DELETE",
       })
     ).json();

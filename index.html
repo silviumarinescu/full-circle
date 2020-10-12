@@ -271,14 +271,33 @@
         },
       }));
     </script>
-    <script type="text/babel"  data-plugins="common, transform-modules-umd" src="common.js"></script>
     <script
       type="text/babel"
-      src="index.jsx"
+      data-plugins="common, transform-modules-umd"
+      src="common.js"
+    ></script>
+    <script
+      type="text/babel"
+      src="app/components/main/Header.jsx"
+      data-plugins="transform-modules-umd"
+    ></script>
+    <script
+      type="text/babel"
+      src="app/components/common/Item.jsx"
+      data-plugins="transform-modules-umd"
+    ></script>
+    <script
+      type="text/babel"
+      src="app/components/common/List.jsx"
+      data-plugins="transform-modules-umd"
+    ></script>
+    <script
+      type="text/babel"
+      src="app/App.jsx"
       data-plugins="transform-modules-umd"
     ></script>
     <script type="text/babel" data-presets="preset">
-      import App from "./index.jsx";
+      import App from "./app/App.jsx";
       ReactDOM.render(<App />, document.getElementById("root"));
     </script>
   </head>
